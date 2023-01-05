@@ -111,22 +111,6 @@ async def send_doc(client, message):
                                                                                                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔺 Restrict User ( **pm** ) 🔺", callback_data="ceasepower")]]))
             return
 
-    try:
-        bot_data = find_one(int(botid))
-        prrename = bot_data['total_rename']
-        prsize = bot_data['total_size']
-        user_deta = find_one(user_id)
-    except:
-        await message.reply_text("Use About cmd first /about")
-    try:
-        used_date = user_deta["date"]
-        buy_date = user_deta["prexdate"]
-        daily = user_deta["daily"]
-        user_type = user_deta["usertype"]
-    except:
-        await message.reply_text(text=f"🦋")
-        return 
-
     c_time = time.time()
 
     if user_type == "Free":
